@@ -35,24 +35,61 @@ Se você está procurando uma abordagem de GAN que combine treinamento robusto c
 
 # Como usar este projeto
 
-Após clonar este repositório, crie um ambiente virtual python e instale as dependências diretamente do arquivo requirements.txt.
+## 1. Clonando o Repositório:
 
-Antes de iniciar o treinamento da GAN, é necessário criar uma pasta chamada "dataset" na raiz do projeto. Por padrão, o pytorch exige pelo menos um rótulo para imagens. 
-Para fazer isso, basta criar uma pasta dentro da pasta "dataset", com um nome de sua escolha (pode ser qualquer nome). Em seguida, basta copiar as imagens que deseja usar no treinamento para essa pasta.
+Para clonar este repositório, use o seguinte comando:
 
-O projeto tem um arquivo chamado "parameters.json" onde você pode configurar os parâmetros de treinamento da GAN e os caminhos do projeto.
+```git clone https://github.com/renan-siqueira/minha-propria-gan.git```
 
-O arquivo já está configurado com parâmetros otimizados para treinar esta arquitetura, mas, se desejar, sinta-se à vontade para alterá-lo de acordo com sua preferência.
+## 2. Criando e ativando o ambiente virtual:
 
-Para iniciar o treinamento, execute o arquivo "main.py".
+### Windows:
+```python -m venv nome_do_ambiente_virtual```
 
-Após iniciar a execução, você poderá acompanhar o treinamento através do terminal e através do arquivo de log que será criado no diretório configurado em "parameters.json".
+Para ativar o ambiente virtual:
+```nome_do_ambiente_virtual\Scripts\activate```
 
-Além disso, no final de cada época, você poderá visualizar uma amostra das imagens geradas dentro do diretório configurado, na pasta "samples".
+### Linux/Mac:
+```python3 -m venv nome_do_ambiente_virtual```
 
-# Como usar GPU
+Para ativar o ambiente virtual:
+```source nome_do_ambiente_virtual/bin/activate```
 
-Esta implementação suporta o uso de GPU.
-Eu usei CUDA 12+ e, para instalar o torch, usei este comando (após criar o ambiente virtual e instalar as dependências):
+## 3. Instalando as dependências:
+
+Windows / Linux / Mac:
+```pip install -r requirements.txt```
+
+## 4. Preparando o conjunto de dados:
+
+- 1. Crie uma pasta chamada "dataset" na raiz do projeto.
+- 2. Dentro da pasta "dataset", crie outra pasta com um nome à sua escolha para os rótulos (por exemplo: "imagens").
+- 3. Copie todas as imagens que deseja usar para treinar para dentro desta pasta.
+
+## 5. Configurando parâmetros de treinamento:
+
+O arquivo "parameters.json" está configurado com parâmetros otimizados para este tipo de arquitetura. No entanto, sinta-se à vontade para alterá-lo conforme suas necessidades.
+
+## 6. Como treinar o modelo:
+
+Execute o seguinte comando:
+
+```python main.py```
+
+## 7. Monitorando o Treinamento:
+
+- Você poderá acompanhar o progresso diretamente no terminal ou console.
+- Um arquivo de log será gerado no diretório especificado no arquivo parameters.json.
+- Ao final de cada época, amostras de imagens geradas serão salvas no diretório configurado, dentro da pasta "samples".
+
+# Como usar GPU:
+
+## 1. Instalando dependências específicas:
+
+Após criar e ativar seu ambiente virtual:
+
+Windows/Linux/Mac
 
 ```pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu121```
+
+Nota: Certifique-se de que seu hardware e sistema operacional sejam compatíveis com CUDA 12+.
